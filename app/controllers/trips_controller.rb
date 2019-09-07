@@ -1,7 +1,11 @@
 class TripsController < ApplicationController
+<<<<<<< HEAD
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trips = Trip.all
+=======
+  def index
+>>>>>>> Test
   end
 
   def show
@@ -12,6 +16,7 @@ class TripsController < ApplicationController
 
   def edit
   end
+<<<<<<< HEAD
 
   private
   def set_trip
@@ -23,4 +28,6 @@ class TripsController < ApplicationController
   end
 
 
+=======
+>>>>>>> Test
 end
