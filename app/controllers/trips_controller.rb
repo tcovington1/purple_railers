@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-  def index
   end
 
   def show
@@ -10,4 +9,3 @@ class TripsController < ApplicationController
 
   def edit
   end
-end

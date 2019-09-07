@@ -1,2 +1,16 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+
+
+
+<h1 class="ui center aligned icon header">
+  <i class="circular plane icon"></i>
+  Trips
+</h1>
+<br>
+<div class="ui raised very padded text container segment">
+<div class="ui list">
+  <% @trips.each do |trip| %>
+    <div class="item"><%= link_to trip.name, trip %></div>
+  <% end %>
+</div>
+</div>
+
