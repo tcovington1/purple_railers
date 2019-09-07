@@ -10,7 +10,18 @@ class LocationsController < ApplicationController
     end
   
     def new
-      @location = @trip.location.new
+
+      @location = @trip.locations.new
+    end
+
+    def create
+      @location = @trip.locations.new(location_params)
+      if @location.save
+        redirect_to trip_locations_path
+      else
+        render :new
+      end
+
     end
   
     def create
@@ -41,15 +52,18 @@ class LocationsController < ApplicationController
     private
     def set_trip
       @trip = Trip.find(params[:trip_id])
+
     end
 
     def set_location
       @location = @trip.location.find(params[:id])
     end
+
   
     def location_params
       params.require(:location).permit(:name, :days, :trip_id)
+
     end
-  
-  
+
   end
+ 

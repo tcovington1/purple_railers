@@ -1,29 +1,19 @@
 <h1>Trip</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for @trip do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field(:name) %>
+    <br><br>
 
-<br>
-<div class="ui raised very padded text container segment">
-<h2 class='ui header'><%= @trip.name %></h2>
-<ul>
-  <li>
-    Start Date: <%=@trip.start_date %>
-  </li>
-  <li>
-    End Date: <%=@trip.end_date %>
-  </li>
-</ul>
-<br>
-<%= link_to 'Add New Location', new_trip_location_path(@trip) %>
-<br>
-<%= link_to 'Locations', trip_locations_path(@trip) %>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, required: true %>
+    <br><br>
 
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, required: true %>
+  <br>
+<%= f.submit %>
+   <br><br>
+ <% end %>
 </div>
-
-<div class="ui animated button" tabindex="0">
-  <div class="visible content"><%= link_to 'Delete Trip', @trip, method: :delete %></div>
-  <div class="hidden content">
-    <i class="trash alternate icon"></i>
-  </div>
-
-</div>
-
-
