@@ -1,2 +1,28 @@
-<h1>Addresses#new</h1>
-<p>Find me in app/views/addresses/new.html.erb</p>
+<h1>Add Address</h1>
+
+
+<div class="ui form">
+<%= form_for [@location, @address] do |a| %>
+  <div class="field">
+  <%= a.label :street %>
+  <%= a.text_field :date, required: true %>
+  </div>
+  <div class="field">
+  <%= a.label :city %>
+  <%= a.text_field :date, required: true %>
+  </div>
+  <div class="field">
+  <%= a.label :state %>
+  <%= a.text_field :date, required: true %>
+  </div>
+  <div class="field">
+  <%= a.label :zip %>
+  <%= a.text_field :date, required: true %>
+  </div>
+
+
+  <%= a.submit %>
+
+  </div>
+<% end %>
+
