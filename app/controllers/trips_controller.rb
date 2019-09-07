@@ -12,6 +12,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    
   end
 
   def create
@@ -24,12 +25,13 @@ class TripsController < ApplicationController
   end
 
   def edit
+    
   end
 
 
   def update
     if @trip.update(trip_params)
-      redirect_to @trip
+      redirect_to trips_path
     else
       render :edit
     end

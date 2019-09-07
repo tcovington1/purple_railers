@@ -3,13 +3,13 @@
 <!-- form_with(model: @location, local: true, class: 'form') -->
 <div class="ui form">
 
-    <%= form_for @location do |l| %>
+    <%= form_for [@trip, @location] do |l| %>
       <%= l.label :name %>
       <%= l.text_field :name, required: true %>
       <br><br>
 
       <%= l.label :days %>
-      <%= l.text_field :last_name, required: true %>
+      <%= l.text_field :days, required: true %>
       <br><br>
 
       <%= l.submit %>

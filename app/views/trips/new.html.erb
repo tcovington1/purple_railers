@@ -3,24 +3,23 @@
 
 <!-- form_with(model: @trip, local: true, class: 'form') -->
 <div class="ui form">
+  <%= form_for @trip do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field(:name) %>
+    <br><br>
 
-    <%= form_for @trip do |t| %>
-      <%= t.label :name %>
-      <%= t.text_field :name, required: true %>
-      <br><br>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, required: true %>
+    <br><br>
 
-      <%= t.label :start_date %>
-      <%= t.text_field :last_name, required: true %>
-      <br><br>
-
-      <%= t.label :end_date %>
-      <%= t.text_field :phone_number, required: true %>
-      <br><br>
-
-      <%= t.submit %>
-      <br><br>
-
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, required: true %>
+  <br>
+<%= f.submit %>
+<br><br>
+<%= link_to 'Back', root_path %></div>
+    <br><br>
+  <% end %>
 </div>
-<% end %>
 
 

@@ -1,21 +1,31 @@
 class LocationsController < ApplicationController
-  class TripsController < ApplicationController
+    before_action :set_trip
     before_action :set_location, only: [:show, :edit, :update, :destroy]
+    
     def index
-      @locations = Location.all
+      @locations = @trip.locations
     end
   
     def show
     end
   
     def new
-      @location = Location.new
+      @location = @trip.locations.new
+    end
+
+    def create
+      @location = @trip.locations.new(location_params)
+      if @location.save
+        redirect_to trip_locations_path
+      else
+        render :new
+      end
     end
   
     def create
-      @location = Location.new(location_params)
+      @location = @trip.location.new(location_params)
       if @location.save
-        redirect_to @location
+        redirect_to trip_locations_path
       else
         render :new
       end
@@ -34,17 +44,21 @@ class LocationsController < ApplicationController
   
     def destroy
       @location.destroy
-      redirect_to physicians_path
+      redirect_to trip_locations_path
     end
   
     private
     def set_trip
-      @location = Location.find(params[:id])
+      @trip = Trip.find(params[:trip_id])
+    end
+
+    def set_location
+      @location = @trip.location.find(params[:id])
     end
   
-    def trip_params
-      params.require(:location).permit(:name, :days)
+    def location_params
+      params.require(:location).permit(:name, :days, :trip_id)
     end
   end
-end
+\
  
