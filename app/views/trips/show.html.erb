@@ -15,9 +15,7 @@
 <br>
 <%= link_to 'Locations', trip_locations_path(@trip) %>
 </div>
-<div class="ui animated button" tabindex="0">
- <div class="visible content"><%= link_to 'Delete Trip', @trip, method: :delete %></div>
- <div class="hidden content">
-   <i class="trash alternate icon"></i>
- </div>
-</div>
+<%= link_to 'Edit Trip', edit_trip_path(@trip) %>
+<br>
+<%= link_to 'Delete Trip', trip_path(@trip), method: :delete %>
+
