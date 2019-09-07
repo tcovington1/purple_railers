@@ -1,2 +1,22 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Location</h1>
+
+<!-- form_with(model: @location, local: true, class: 'form') -->
+<div class="ui form">
+
+    <%= form_for @location do |l| %>
+      <%= l.label :name %>
+      <%= l.text_field :name, required: true %>
+      <br><br>
+
+      <%= l.label :days %>
+      <%= l.text_field :last_name, required: true %>
+      <br><br>
+
+      <%= l.submit %>
+      <br><br>
+
+</div>
+<% end %>
+
+
+

@@ -1,2 +1,10 @@
-<h1>Addresses#show</h1>
-<p>Find me in app/views/addresses/show.html.erb</p>
+<h1 class='ui header'><%= @location.name %>Address</h1>
+<ul>
+  <li>Street Name: <%=@address.street%>
+  <li>City: <%=@address.city%>
+  <li>State: <%=@address.state%>
+  <li>Zip: <%=@address.zip%>
+</ul>
+<br>
+<%= link_to "Destroy", physician_appointment_path(@physician, appointment), method: :delete %>
+<%= link_to 'Add Appointment', new_physician_appointment_path(@physician) %>
