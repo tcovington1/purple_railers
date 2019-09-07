@@ -45,6 +45,6 @@ class LocationsController < ApplicationController
     def trip_params
       params.require(:location).permit(:name, :days)
     end
-  
-  
   end
+end
+ 
