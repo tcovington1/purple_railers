@@ -5,10 +5,10 @@
 <h2 class='ui header'><%= @location.name %></h2>
 <p>Length: <%=@location.days %></p>
 <br>
-<%= link_to 'Address', location_addresses_path %>
-
+<%= link_to 'Add New Address', new_addresses_path %>
+<br>
+<%= link_to 'Address', address_path %>
 </div>
-
 <div class="ui animated button" tabindex="0">
   <div class="visible content"><%= link_to 'Delete Location', @location, method: :delete %></div>
   <div class="hidden content">
