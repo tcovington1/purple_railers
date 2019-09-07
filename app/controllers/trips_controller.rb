@@ -1,33 +1,60 @@
 class TripsController < ApplicationController
 <<<<<<< HEAD
+<<<<<<< HEAD
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   def index
     @trips = Trip.all
 =======
   def index
 >>>>>>> Test
+=======
+>>>>>>> a9879c688f2dcc4519e7e479f3b6fcabc010a20b
   end
 
   def show
   end
 
   def new
+    @trip = Trip.new
+  end
+
+  def create
+    @trip = Trip.new(trip_params)
+    if @trip.save
+      redirect_to @trip
+    else
+      render :new
+    end
   end
 
   def edit
   end
 <<<<<<< HEAD
 
-  private
-  def set_trip
-    @physician = Physician.find(params[:id])
+  def update
+    if @trip.update(trip_params)
+      redirect_to @trip
+    else
+      render :edit
+    end
   end
 
-  def physician_params
-    params.require(:physician).permit(:name, :specialty)
+  def destroy
+    @trip.destroy
+    redirect_to trips_path
+  end
+
+  private
+  def set_trip
+    @trip = Trip.find(params[:id])
+  end
+
+  def trip_params
+    params.require(:trip).permit(:name, :start_date, :end_date)
   end
 
 
 =======
 >>>>>>> Test
 end
+
