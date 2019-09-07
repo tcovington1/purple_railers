@@ -8,18 +8,41 @@ class TripsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
+  end
+
+  def create
+    @trip = Trip.new(trip_params)
+    if @trip.save
+      redirect_to @trip
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
-  private
-  def set_trip
-    @physician = Physician.find(params[:id])
+  def update
+    if @trip.update(trip_params)
+      redirect_to @trip
+    else
+      render :edit
+    end
   end
 
-  def physician_params
-    params.require(:physician).permit(:name, :specialty)
+  def destroy
+    @trip.destroy
+    redirect_to physicians_path
+  end
+
+  private
+  def set_trip
+    @trip = Trip.find(params[:id])
+  end
+
+  def trip_params
+    params.require(:trip).permit(:name, :start_date, :end_date)
   end
 
 
