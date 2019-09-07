@@ -1,2 +1,21 @@
-<h1>Trips#edit</h1>
-<p>Find me in app/views/trips/edit.html.erb</p>
+<h1>Edit Trip</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for @trip do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field(:name) %>
+
+
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, required: true %>
+    
+
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, required: true %>
+  
+   
+   <button class="btn btn-success"> <%= link_to 'Back', root_path%> </button>
+   <button class="btn btn-warning"> <%= f.submit %> </button>
+
+ <% end %>
+</div>

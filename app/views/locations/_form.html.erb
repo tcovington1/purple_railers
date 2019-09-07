@@ -1,6 +1,5 @@
-<h1>Add a Location</h1>
 
-<!-- form_with(model: @location, local: true, class: 'form') -->
+<h1><%= @song.id ? 'Edit Location' : 'Create Location' %></h1>
 <div class="ui form">
 
     <%= form_for [@trip, @location] do |l| %>
@@ -17,6 +16,3 @@
 
 </div>
 <% end %>
-
-
-

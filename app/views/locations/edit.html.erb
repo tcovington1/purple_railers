@@ -1,2 +1,17 @@
-<h1>Locations#edit</h1>
-<p>Find me in app/views/locations/edit.html.erb</p>
+<h1>Edit Location</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for [@trip, @location] do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br><br>
+   <%= f.label :days %>
+   <%= f.number_field :days %>
+   <br><br>
+   <br><br>
+   <div><button class="btn btn-warning"> <%= f.submit %></button></div>
+   
+   <button class="btn btn-success"> <%= link_to 'Back', root_path%> </button>
+   <br><br>
+ <% end %>
+</div>
