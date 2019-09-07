@@ -1,2 +1,26 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+
+<h1>Trip</h1>
+
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+
+    <%= form_for @trip do |t| %>
+      <%= t.label :name %>
+      <%= t.text_field :name, required: true %>
+      <br><br>
+
+      <%= t.label :start_date %>
+      <%= t.text_field :last_name, required: true %>
+      <br><br>
+
+      <%= t.label :end_date %>
+      <%= t.text_field :phone_number, required: true %>
+      <br><br>
+
+      <%= t.submit %>
+      <br><br>
+
+</div>
+<% end %>
+
+
