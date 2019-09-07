@@ -7,7 +7,7 @@
 <div class="ui raised very padded text container segment">
 <div class="ui list">
   <% @locations.each do |location| %>
-    <div class="item"><%= link_to location.name, location %></div>
+    <div class="item"><%= link_to location.name, trip_location_path(@trip, location.id) %></div>
   <% end %>
 </div>
 </div>
