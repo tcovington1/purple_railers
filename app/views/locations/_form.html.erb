@@ -1,0 +1,18 @@
+
+<h1><%= @song.id ? 'Edit Location' : 'Create Location' %></h1>
+<div class="ui form">
+
+    <%= form_for [@trip, @location] do |l| %>
+      <%= l.label :name %>
+      <%= l.text_field :name, required: true %>
+      <br><br>
+
+      <%= l.label :days %>
+      <%= l.text_field :days, required: true %>
+      <br><br>
+
+      <%= l.submit %>
+      <br><br>
+
+</div>
+<% end %>
