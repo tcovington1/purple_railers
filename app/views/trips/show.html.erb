@@ -1,2 +1,28 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+
+
+<h1>Trip</h1>
+
+<br>
+<div class="ui raised very padded text container segment">
+<h2 class='ui header'><%= @trip.name %></h2>
+<ul>
+  <li>
+    Start Date: <%=@trip.start_date %>
+  </li>
+  <li>
+    End Date: <%=@trip.end_date %>
+  </li>
+</ul>
+<br>
+<%= link_to 'Address', trip_addresses_path %>
+
+</div>
+
+<div class="ui animated button" tabindex="0">
+  <div class="visible content"><%= link_to 'Delete Trip', @trip, method: :delete %></div>
+  <div class="hidden content">
+    <i class="trash alternate icon"></i>
+  </div>
+
+</div>
+
