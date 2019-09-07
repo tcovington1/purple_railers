@@ -1,2 +1,12 @@
-<h1>Locations#index</h1>
-<p>Find me in app/views/locations/index.html.erb</p>
+
+<h1>
+  Locations
+</h1>
+<br>
+<div class="ui raised very padded text container segment">
+<div class="ui list">
+  <% @locations.each do |location| %>
+    <div class="item"><%= link_to location.name, location %></div>
+  <% end %>
+</div>
+</div>
