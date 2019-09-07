@@ -6,9 +6,28 @@
 <br>
 <div class="ui raised very padded text container segment">
 <div class="ui list">
+  <table class="">
+  <thead>
+  <tr class="">
+  <th>State</th>
+  <th>Start Date</th>
+  <th>Days</th>
+  <th>Show</th>
+  <th>Edit</th>
+  <th>Delete</th>
+  </tr>
+</thead>
   <% @locations.each do |location| %>
-    <div class="item"><%= link_to location.name, location %></div>
+  <tr>
+    <td class="item"><%= location.name %></td>
+  <td class="item"><%= @trip.start_date.strftime("%Y-%m-%d") %></td>
+  <td class="item"><%= location.days %></td>
+  <td><%= link_to "Address", trip_location_path(@trip, location.id)%></td>
+  <td><%= link_to "Edit ", edit_trip_location_path(@trip, location.id)%></td>
+  <td><%= link_to "Delete", trip_location_path(@trip, location.id), method: :delete %></td>
   <% end %>
+  </tr>
+  </table>
 </div>
 </div>
 
