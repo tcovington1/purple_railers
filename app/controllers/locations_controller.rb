@@ -7,12 +7,13 @@ class LocationsController < ApplicationController
     end
   
     def show
+      
     end
   
     def new
       @location = @trip.locations.new
     end
-
+  
     def create
       @location = @trip.locations.new(location_params)
       if @location.save
@@ -22,21 +23,13 @@ class LocationsController < ApplicationController
       end
     end
   
-    def create
-      @location = @trip.location.new(location_params)
-      if @location.save
-        redirect_to trip_locations_path
-      else
-        render :new
-      end
-    end
-  
     def edit
+      
     end
   
     def update
       if @location.update(location_params)
-        redirect_to @location
+        redirect_to trip_locations_path(@trip, @location)
       else
         render :edit
       end
@@ -53,12 +46,12 @@ class LocationsController < ApplicationController
     end
 
     def set_location
-      @location = @trip.location.find(params[:id])
+      @location = Location.find(params[:id])
     end
   
     def location_params
       params.require(:location).permit(:name, :days, :trip_id)
     end
+  
+  
   end
-\
- 
