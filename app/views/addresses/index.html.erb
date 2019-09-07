@@ -1,1 +1,16 @@
+<h1 class='ui header'><%= @location.name %> Address</h1>
+
+<ul>
+<%= @addresses.each do |address| %>
+  <li>Street Name: <%=address.street%>
+  <li>City: <%=address.city%>
+  <li>State: <%=address.state%>
+  <li>Zip: <%=address.zip%>
+  </ul>
+  <%= link_to "Delete", location_address_path(@location, address.id), method: :delete%>
+  <br>
+<% end %>
+
+<br>
+<%= link_to 'Add Address', new_location_address_path(@location) %>
 
