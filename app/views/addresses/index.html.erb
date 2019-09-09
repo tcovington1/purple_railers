@@ -1,16 +1,23 @@
 <h1 class='ui header'><%= @location.name %> Address</h1>
-
+<% if @addresses == [] %>
+<%= link_to 'Add Address', new_location_address_path(@location) %>
+<% else %>
 <ul>
 <%= @addresses.each do |address| %>
-  <li>Street Name: <%=address.street%>
-  <li>City: <%=address.city%>
-  <li>State: <%=address.state%>
-  <li>Zip: <%=address.zip%>
+  <li>Street Name: <%=address.street%></li>
+  <li>City: <%=address.city%></li>
+  <li>State: <%=address.state%></li>
+  <li>Zip: <%=address.zip%></li>
+  <li><%= link_to "Delete", location_address_path(@location, address.id), method: :delete%></li>
+  <li><%= link_to "Edit", edit_location_address_path(@location, address.id)%></li>
   </ul>
-  <%= link_to "Delete", location_address_path(@location, address.id), method: :delete%>
+  <br>
   <br>
 <% end %>
+<% end %>
 
-<br>
-<%= link_to 'Add Address', new_location_address_path(@location) %>
+
+
+
+
 
