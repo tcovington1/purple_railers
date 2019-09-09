@@ -23,7 +23,7 @@ trip_name = ['The Best Trip Ever', 'Trip To The Moon', 'Cross Country', 'Cruise'
         days: Faker::Number.within(range: 1..20),
         trip_id: trip.id
       )
-     Address.create(
+     address = Address.create(
       street: Faker::Address.street_address,
       city: Faker::Address.city,
       state: Faker::Address.state,

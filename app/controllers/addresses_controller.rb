@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
   def create
     @address = @location.addresses.new(address_params)
     if @address.save
-      redirect_to trip_location_path(@location.trip_id, @location)
+      redirect_to location_addresses_path(@location)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class AddressesController < ApplicationController
   
   def update
     if @address.update(address_params)
-      redirect_to @address
+      redirect_to location_addresses_path(@location)
     else
       render :edit
     end
@@ -36,18 +36,18 @@ class AddressesController < ApplicationController
   def destroy
 
     @address.destroy
-    redirect_to trip_location_path(@location.trip_id, @location)
+    redirect_to location_addresses_path(@location)
   end
   private
-
     def set_location
       @location = Location.find(params[:location_id])
+    end
+    def set_address
+      @address = @location.addresses.find(params[:id])
     end
     def address_params
       params.require(:address).permit(:street, :city, :state, :zip, :location_id)
     end
-    def set_address
-      @address = Address.find(params[:id])
-    end
+
 end
 

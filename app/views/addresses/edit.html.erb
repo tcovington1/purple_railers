@@ -1,2 +1,26 @@
-<h1>Addresses#edit</h1>
-<p>Find me in app/views/addresses/edit.html.erb</p>
+
+
+
+<h1>Edit Address</h1>
+<!-- form_with(model: @location, @address, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for [@location, @address] do |f| %>
+   <%= f.label :street %>
+   <%= f.text_field :street %>
+   <br><br>
+   <%= f.label :city %>
+   <%= f.text_field :city %>
+   <br><br>
+   <%= f.label :state %>
+   <%= f.text_field :state %>
+   <br><br>
+   <%= f.label :zip %>
+   <%= f.number_field :zip %>
+   <br><br>
+   <br><br>
+   <div><button class="btn btn-warning"> <%= f.submit %></button></div>
+   
+   <button class="btn btn-success"> <%= link_to 'Back', root_path%> </button>
+   <br><br>
+ <% end %>
+</div>

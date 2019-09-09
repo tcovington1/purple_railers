@@ -1,0 +1,26 @@
+<h1><%= @address.id ? 'Edit Address' : 'Create Address' %></h1>
+<div class="ui form">
+
+    <%= form_for [@location, @address] do |l| %>
+      <%= l.label :street %>
+      <%= l.text_field :street, required: true %>
+      <br><br>
+
+      <%= l.label :city %>
+      <%= l.text_field :city, required: true %>
+
+      <%= l.label :state %>
+      <%= l.text_field :state, required: true %>
+
+      <%= l.label :zip %>
+      <%= l.text_field :zip, required: true %>
+
+      <br><br>
+
+      <%= l.submit %>
+      <br><br>
+
+</div>
+<% end %>
+
+
